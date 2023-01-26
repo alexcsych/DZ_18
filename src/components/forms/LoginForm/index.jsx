@@ -10,7 +10,6 @@ function LoginForm () {
     lastName: '',
     email: '',
     password: '',
-    passwordConfirmation: '',
   };
 
   const handleSubmit = (values, formikBag) => {
@@ -33,7 +32,6 @@ function LoginForm () {
     >
       <Form className={styles.form}>
         <Input
-          label='Name:'
           type='text'
           name='firstName'
           placeholder='First name'
@@ -41,29 +39,21 @@ function LoginForm () {
           classes={classes}
         />
         <Input
-          label='Name:'
           type='text'
           name='lastName'
           placeholder='Last name'
           classes={classes}
         />
         <Input
-          label='Email:'
           type='email'
           name='email'
           placeholder='your@mail.com'
           classes={classes}
         />
         <Input
-          label='Password:'
-          type='password'
+          type='text'
           name='password'
-          classes={classes}
-        />
-        <Input
-          label='Password:'
-          type='password'
-          name='passwordConfirmation'
+          placeholder='Password'
           classes={classes}
         />
         <button type='submit'>Save</button>

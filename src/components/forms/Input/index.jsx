@@ -8,7 +8,6 @@ function Input (props) {
     <Field name={name}>
       {({
         field, // { name, value, onChange, onBlur }
-        form: { errors, touched },
         meta,
       }) => {
         const inputClassNames = classNames(classes.input, {
@@ -18,7 +17,6 @@ function Input (props) {
 
         return (
           <label>
-            <span>{label} </span>
             <input className={inputClassNames} {...restProps} {...field} />
             {meta.error && meta.touched && (
               <span className={classes.error}>{meta.error}</span>

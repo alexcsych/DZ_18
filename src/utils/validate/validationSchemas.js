@@ -8,24 +8,18 @@ export const LOGIN_VALIDATION_SCHEMA = yup.object({
     .string()
     .min(8)
     .max(20)
-    .matches(/^(?=.*[A-Z].*)$/, 'Password must contain an uppercase letter')
-    .matches(/^(?=.*[a-z].*)$/, 'Password must contain an lowercase letter')
-    .matches(/^(?=.*\d.*)$/, 'Password must contain numbers')
     .matches(
-      /^(?=.*[!@#$%^&*].*)$/,
-      'Password must contain special character(!@#$%^&*)'
+      /^(?=.*[A-Z].*).{8,20}$/,
+      'Password must contain an uppercase letter'
     )
-    .required(),
-  passwordConfirmation: yup
-    .string()
-    .min(8)
-    .max(20)
-    .matches(/^(?=.*[A-Z].*)$/, 'Password must contain an uppercase letter')
-    .matches(/^(?=.*[a-z].*)$/, 'Password must contain an lowercase letter')
-    .matches(/^(?=.*\d.*)$/, 'Password must contain numbers')
     .matches(
-      /^(?=.*[!@#$%^&*].*)$/,
-      'Password must contain special character(!@#$%^&*)'
+      /^(?=.*[a-z].*).{8,20}$/,
+      'Password must contain an lowercase letter'
+    )
+    .matches(/^(?=.*\d.*).{8,20}$/, 'Password must contain numbers')
+    .matches(
+      /^(?=.*[!@#$%^&*.].*).{8,20}$/,
+      'Password must contain special character(!@#$%^&*.)'
     )
     .required(),
 });
