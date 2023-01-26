@@ -1,11 +1,13 @@
 import { Formik, Form } from 'formik';
 import React from 'react';
-import { LOGIN_VALIDATION_SCHEMA } from '../../../utils/validate/validationSchemas';
+import { SIGNUP_VALIDATION_SCHEMA } from '../../../utils/validate/validationSchemas';
 import Input from '../Input';
-import styles from './LoginForm.module.sass';
+import styles from './SignupForm.module.sass';
 
-function LoginForm () {
+function SignupForm () {
   const initialValues = {
+    firstName: '',
+    lastName: '',
     email: '',
     password: '',
   };
@@ -24,13 +26,26 @@ function LoginForm () {
 
   return (
     <>
-      <h2 className={styles.h2}>LOGIN TO YOUR ACCOUNT</h2>
+      <h2 className={styles.h2}>CREATE AN ACCOUNT</h2>
       <Formik
         initialValues={initialValues}
         onSubmit={handleSubmit}
-        validationSchema={LOGIN_VALIDATION_SCHEMA}
+        validationSchema={SIGNUP_VALIDATION_SCHEMA}
       >
         <Form className={styles.form}>
+          <Input
+            type='text'
+            name='firstName'
+            placeholder='First name'
+            autoFocus
+            classes={classes}
+          />
+          <Input
+            type='text'
+            name='lastName'
+            placeholder='Last name'
+            classes={classes}
+          />
           <Input
             type='email'
             name='email'
@@ -43,11 +58,11 @@ function LoginForm () {
             placeholder='Password'
             classes={classes}
           />
-          <button type='submit'>Login</button>
+          <button type='submit'>Create Account</button>
         </Form>
       </Formik>
     </>
   );
 }
 
-export default LoginForm;
+export default SignupForm;
